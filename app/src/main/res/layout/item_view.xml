@@ -1,84 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:weightSum="11">
+    android:layout_margin="5dp"
+    app:strokeColor="#D3D0D0"
+    app:strokeWidth="1dp">
 
-    <TextView
-        android:id="@+id/t1"
-        android:layout_width="0dp"
-        android:textSize="5sp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/t2"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/oderNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Number 110" />
 
-    <TextView
-        android:id="@+id/t3"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/t4"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product List" />
 
-    <TextView
-        android:id="@+id/t5"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="5dp"
+                android:text="Qty" />
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/t6"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
 
-    <TextView
-        android:id="@+id/t7"
-        android:textSize="5sp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+            <TextView
+                android:id="@+id/productId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/t8"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+            <TextView
+                android:id="@+id/qty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="5dp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/t9"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/t10"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
-    <TextView
-        android:id="@+id/t11"
-        android:layout_width="0dp"
-        android:textSize="5sp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
-</LinearLayout>
+</androidx.cardview.widget.CardView>

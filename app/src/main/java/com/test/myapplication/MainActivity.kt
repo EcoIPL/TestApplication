@@ -1,6 +1,7 @@
 package com.test.myapplication
 
 
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,11 +15,14 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
+import java.util.stream.Collectors
 
 
 class MainActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
     lateinit var mainAdapter: MainAdapter
+    var dataClass: MutableList<DataClass> = mutableListOf()
+    var orderList: MutableList<String> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -54,9 +58,37 @@ class MainActivity : AppCompatActivity() {
                     val a = jsonStringHolder.substring(19, jsonStringHolder.length - 4).toString()
                     val data = a.split("!!")
                     for (i in data.indices) {
-                        println(data[i].split("|"))
+                        if (i != 0) {
+                            dataClass.add(
+                                DataClass(
+                                    data[i].split("|")[0],
+                                    data[i].split("|")[1],
+                                    data[i].split("|")[2],
+                                    data[i].split("|")[3],
+                                    data[i].split("|")[4],
+                                    data[i].split("|")[5],
+                                    data[i].split("|")[6],
+                                    data[i].split("|")[7],
+                                    data[i].split("|")[8],
+                                    data[i].split("|")[9],
+                                    data[i].split("|")[10]
+                                )
+                            )
+                        }
+
+
                     }
-                    mainAdapter = MainAdapter(data)
+                    val groupData: Map<String, List<DataClass>> =
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            dataClass.stream().collect(
+                                Collectors.groupingBy(DataClass::ordno)
+                            )
+                        } else {
+                            TODO("VERSION.SDK_INT < N")
+                        }
+                    println(groupData)
+
+                    mainAdapter = MainAdapter(groupData)
                     recyclerView.adapter = mainAdapter
 
                 }
